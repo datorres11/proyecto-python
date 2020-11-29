@@ -28,21 +28,8 @@ def recuperarContraseña():
 @app.route("/pantalla_principal")
 
 def pantallaPrincipal():
-    cursor=connection.cursosr()
-    print("este es el email "+request.form['email'])
-    try:
-        sQuery="Select * from usuarios where email =%s"
-        cursor.execute(sQuery,(request.form['email']))
-        cursor.query
-        usuariosEncontrados=cursor.fetchall()
-        if len(usuariosEncontrados)==1:
-            return render_template("index.html")
-        else:
-            #mensaje al usuario correo electronico no existe
-            print("El email no existe")
-    except psycopg2.DataError as error:
-        print("Error al insertar un usuario: "+str(error),'alert-warning')
-
+    return render_template("index.html")
+    
 @app.route("/registrar")
 
 def registrar():
